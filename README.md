@@ -7,8 +7,6 @@ A sample that
 <li>use Chrome API (not implemented yet)</li>
 </ul>
 
-<h2>MotivationOpen issues</h2>
-need to use MutationObsever to wait for the node Nathan Krasney in content.js
 
 
 <h2>Reference</h2>

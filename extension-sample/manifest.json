@@ -1,7 +1,7 @@
 {
-  "name": "My Extension #2",
+  "name": "Content Script",
   "version": "1.0",
-  "description": "My Extension #2 Description",
+  "description": "Content Script Description",
   "manifest_version": 3,
   "author": "Nathan Krasney",
   "action": {
@@ -10,7 +10,6 @@
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
-      "run_at": "document_end",
       "matches": [
         "https://www.linkedin.com/feed/*"
       ]

@@ -1,17 +1,20 @@
+console.log("content script is loaded ....");
 
-console.log('hello !!!!!');
+getPage();
 
-// const divElements = document.querySelectorAll('div:is(:contains("Nathan Krasney"))');
-const divElements = document.querySelectorAll('div');
-
-console.log(`divs : ${divElements.length}`)
-
-for (let i = 0; i < divElements.length; i++) {
-    if(divElements[i].innerText.includes('Nathan Krasney')){
-        console.log(divElements[i].innerText)
-    }
+async function getPage() {
+  const buttonElem = document.createElement("button");
+  buttonElem.innerText = "Click";
+  buttonElem.style.color = "red";
+  buttonElem.addEventListener("click", () => {
+    const url = "https://jsonplaceholder.typicode.com/todos";
+    fetch(url)
+      .then((response) => response.json())
+      .then((todos) => console.log(`todos.length : ${todos.length}`));
+    alert(123);
+  });
+  const globalNavElem = document.getElementById("global-nav");
+  if (globalNavElem.firstChild) {
+    globalNavElem.insertBefore(buttonElem, globalNavElem.firstChild);
   }
-  
-  console.log(document.querySelector('.scaffold-layout__sidebar').innerHTML)
-
-  console.log('end !!!!!');
+}
