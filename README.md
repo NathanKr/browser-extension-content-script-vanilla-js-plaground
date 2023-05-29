@@ -3,8 +3,8 @@ A sample that
 <ul>
 <li>use content script</li>
 <li>use default icon</li>
-<li>read info from another web site : read profiles from https://www.linkedin.com/feed/</li>
-<li>use Chrome API (not implemented yet)</li>
+<li>add a Click red button to the linkedin top menu</li>
+
 </ul>
 
 
