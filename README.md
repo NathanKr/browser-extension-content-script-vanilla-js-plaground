@@ -3,7 +3,7 @@ A sample that
 <ul>
 <li>use content script</li>
 <li>use default icon</li>
-<li>add a Click red button to the linkedin top menu</li>
+<li>add a dialog to the linkedin top menu</li>
 
 </ul>
 

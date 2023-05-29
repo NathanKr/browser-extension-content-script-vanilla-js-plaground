@@ -3,18 +3,36 @@ console.log("content script is loaded ....");
 getPage();
 
 async function getPage() {
-  const buttonElem = document.createElement("button");
-  buttonElem.innerText = "Click";
-  buttonElem.style.color = "red";
-  buttonElem.addEventListener("click", () => {
-    const url = "https://jsonplaceholder.typicode.com/todos";
-    fetch(url)
-      .then((response) => response.json())
-      .then((todos) => console.log(`todos.length : ${todos.length}`));
-    alert(123);
-  });
+  const elem = `
+  <div>
+    <dialog>
+      <p>Greetings, one and all!</p>
+      <form method="dialog">
+        <button>Close</button>
+      </form>
+    </dialog>
+    <p>
+      <button>
+        Show the dialog !
+      </button>
+    </p>
+  </div>`;
+
+  const divElem = document.createElement("div");
+  divElem.innerHTML = elem;
+
   const globalNavElem = document.getElementById("global-nav");
   if (globalNavElem.firstChild) {
-    globalNavElem.insertBefore(buttonElem, globalNavElem.firstChild);
+    const newChild = globalNavElem.insertBefore(
+      divElem,
+      globalNavElem.firstChild
+    );
+
+    const buttonElem = newChild.querySelector("p > button");
+    const dialogElem = newChild.querySelector("dialog");
+
+    buttonElem.addEventListener("click", () => {
+      dialogElem.showModal();
+    });
   }
 }
